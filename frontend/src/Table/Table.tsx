@@ -3,25 +3,16 @@ import { testIncomeStatementData } from './testData'
 
 const data = testIncomeStatementData;
 
-type Props = {}
-
-type Company = (typeof data)[0];
-
-const config = [
-    {
-        label: "Year",
-        render: (company: Company) => company.acceptedDate,
-    },
-    {
-        label: "Cost of Revenue",
-        render: (company: Company) => company.costOfRevenue,
-    }
-];
+type Props = {
+    config: any,
+    data: any,
+}
 
 
-const Table = (props: Props) => {
 
-    const renderedRows = data.map((company) => {
+const Table = ({config, data}: Props) => {
+
+    const renderedRows = data.map((company:any) => {
         return (
             <tr key={company.cik}>
                 {config.map((val: any) => {
